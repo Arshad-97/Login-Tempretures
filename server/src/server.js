@@ -1,7 +1,7 @@
 const http = require("http");
 const app = require("./app");
 const dotenv = require('dotenv')
-const dbConnect = require('./config/dbConnect.js');
+const dbConnect = require('./config/dbConnect');
 
 //load dotenv file
 dotenv.config();

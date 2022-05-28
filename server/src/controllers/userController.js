@@ -1,5 +1,5 @@
 const expressAsyncHandler = require('express-async-handler');
-const User = require("../modal/User.js");
+const User = require("../modal/User");
 
 //Registers a new
 const registerUser = expressAsyncHandler(async(req, res) => {
