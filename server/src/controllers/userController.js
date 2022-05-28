@@ -1,12 +1,13 @@
+const expressAsyncHandler = require('express-async-handler');
 const User = require("../modal/User.js");
 
 //Registers a new
-const registerUser = async(req, res) => {
+const registerUser = expressAsyncHandler(async(req, res) => {
     const { email, firstname, lastname, password } = req.body;
 
     //check if the user already exists
     const userExists = await User.findOne({ email });
-    if (userExists) console.log('User already exist');
+    if (userExists) throw new Error("User already exist");
     try {
         const user = await User.create({
             email,
@@ -18,6 +19,6 @@ const registerUser = async(req, res) => {
     } catch (error) {
         res.json(error);
     }
-};
+});
 
 module.exports = { registerUser }
