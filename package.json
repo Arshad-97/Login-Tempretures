@@ -1,0 +1,23 @@
+{
+  "name": "login-tempretures",
+  "version": "1.0.0",
+  "description": "When login the user given location tempereture store and history ritrive",
+  "main": "server.js",
+  "scripts": {
+        "server": "npm run start --prefix server",
+        "client": "cd client && npm start",
+        "client1": "cd client2 && npm run serve",
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "startv": "concurrently \"npm run server\" \"npm run client1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arshad-97/Login-Tempretures.git"
+  },
+  "author": "Arshad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arshad-97/Login-Tempretures/issues"
+  },
+  "homepage": "https://github.com/Arshad-97/Login-Tempretures#readme"
+}
