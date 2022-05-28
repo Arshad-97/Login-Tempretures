@@ -21,4 +21,25 @@ const registerUser = expressAsyncHandler(async(req, res) => {
     }
 });
 
-module.exports = { registerUser }
+//logins
+const loginUser = expressAsyncHandler(async(req, res) => {
+    const { email, password } = req.body;
+
+    //Find user in db
+    const userFound = await User.findOne({ email });
+
+    //Check if the user password match
+    if (userFound && (await userFound.isPasswordMatch(password))) {
+        res.json({
+            _id: userFound._id,
+            firstname: userFound.firstname,
+            lastname: userFound.lastname,
+            email: userFound.email,
+        });
+    } else {
+        res.status(401);
+        throw new Error('Invalid login credentials');
+    }
+});
+
+module.exports = { registerUser, loginUser }
